@@ -15,5 +15,21 @@
     bottom: 2rem;
     right: 4rem;
     cursor: pointer;
+
+    @keyframes spin { 
+      100% { 
+          -webkit-transform: rotate(360deg); 
+          transform:rotate(360deg); 
+      } 
+    }
+
+    &.loading{
+      position: relative;
+      top: 10rem;
+      width: 10rem;
+      right: 0;
+      left: 0;
+      animation: spin 2s infinite linear;
+    }
   }
 }

@@ -47,7 +47,7 @@ export default function View() {
     try {
       const response = await api.get(`/service/${id}`)
 
-      await setService(response.data.service)
+      setService(response.data.service)
       console.log(response.data.service)
     } catch (e) {
       alert(e)
@@ -55,7 +55,7 @@ export default function View() {
   }
 
   async function handleChangeStatus(status: String){
-    await api.put(`/service/${service?.id}`,{
+    await api.put(`/service/${service?.docId}`,{
           title: service?.title,
           description: service?.description,
           limitDate: service?.limitDate,
@@ -75,7 +75,12 @@ export default function View() {
   return (
     <main className={styles.CreateContanier} >
       <img className={styles.back} src={Back} alt="adicionar todo" onClick={() => history.push('/')} />
-      <img className={styles.edit} src={Edit} alt="Botão de edição" onClick={() => history.push(`/edit/${service?.docId}`)} />
+
+      {service?.status !== "Aberto" ? <img className={styles.editDisabled} src={Edit} alt="Botão de edição" />
+      :
+      <img className={styles.edit} src={Edit} alt="Botão de edição" onClick={() => history.push(`/edit/${id}`)} />
+      }
+      
       <div >
         <h1>{service?.title}</h1>
         
@@ -116,8 +121,8 @@ export default function View() {
         <h2>Ações:</h2>
         {service?.status !== "Aberto" ? 
         <div className={styles.ButtonContainer} >
-          <button disabled className={styles.complete} >Concluir</button>
-          <button disabled className={styles.cancel} >Cancelar</button>
+          <button disabled className={styles.completeDisabled} >Concluir</button>
+          <button disabled className={styles.cancelDisabled} >Cancelar</button>
         </div>
         :
         <div className={styles.ButtonContainer} >

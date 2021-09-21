@@ -32,7 +32,6 @@ export default function Edit() {
   const [limitdate, setLimitdate] = useState('')
   const [budget, setBudget] = useState('')
   const [comments, setComments] = useState('')
-  const [loading, setLoading] = useState(false)
 
   async function handleGetService(){
     try {
@@ -45,7 +44,7 @@ export default function Edit() {
   }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  function pop(){
+  function populateForm(){
 
     setTitle(service.title)
     setDescription(service.description)
@@ -56,7 +55,6 @@ export default function Edit() {
 
   async function handleSubmit(e: FormEvent){
     e.preventDefault()
-    setLoading(true)
 
     try {
       if(title.length < 0){
@@ -65,7 +63,7 @@ export default function Edit() {
         alert('Insira uma data válida!')
       } else {
 
-        api.put(`/service/${id}`, {
+        await api.put(`/service/${id}`, {
           title,
           description,
           limitDate: new Date(limitdate).toISOString(),
@@ -74,11 +72,11 @@ export default function Edit() {
           status: 'Aberto'
         })
       }
+
+      history.push(`/view/${service.docId}`)
       
     } catch (e) {
       alert(e)
-    } finally {
-      setLoading(false)
     }
   }
 
@@ -88,12 +86,13 @@ export default function Edit() {
   }, [])
 
   useEffect(() => {
-    pop()
-  }, [pop, service])
+    populateForm()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [service])
 
   return (
     <main className={styles.CreateContanier} >
-      <img src={Back} alt="adicionar todo" onClick={() => history.push('/')} />
+      <img src={Back} alt="adicionar todo" onClick={() => history.push(`/view/${service.docId}`)} />
 
       <form onSubmit={handleSubmit} >
         <fieldset>
@@ -121,7 +120,7 @@ export default function Edit() {
           <textarea value={comments} onChange={({target}) => setComments(target.value)} />
         </fieldset>
 
-        {loading ? <button type="submit" disabled >Cadastrar</button> : <button type="submit" >Cadastrar</button>}
+        <button type="submit" >Atualizar</button>
       </form>
     </main>
   )

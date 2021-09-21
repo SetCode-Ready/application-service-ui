@@ -19,6 +19,14 @@
       right: 1rem;
     }
 
+    &.editDisabled{
+      position: absolute;
+      width: 3rem;
+      top: 1rem;
+      cursor: not-allowed;
+      right: 1rem;
+    }
+
     &.back{
       position: absolute;
       width: 3rem;
@@ -83,15 +91,35 @@
 
         &.complete{
           background-color: var(--done);
+
+          &:hover{
+            filter: brightness(0.9);
+          }
+        }
+
+        &.completeDisabled{
+          cursor: not-allowed;
+          background-color: var(--done);
+          filter: contrast(0.4);
+          filter: brightness(0.8);
         }
 
         &.cancel{
-          background-color: var(--cancel);  
+          background-color: var(--cancel); 
+          
+          &:hover{
+            filter: brightness(0.9);
+          }
         }
 
-        &:hover{
-          filter: brightness(0.9);
+        &.cancelDisabled{
+          cursor: not-allowed;
+          background-color: var(--cancel);
+          filter: contrast(0.4);
+          filter: brightness(0.8);
         }
+
+        
       }
     }
   }

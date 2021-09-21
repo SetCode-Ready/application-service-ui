@@ -23,7 +23,7 @@ function App() {
           <Route path="/view/:id">
             <View/>
           </Route>
-          <Route path="/edit/:id">
+          <Route exact path="/edit/:id">
             <Edit/>
           </Route>
         </Switch>

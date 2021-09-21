@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import styles from './style.module.scss'
 import Card from '../Card'
 
+import Loading from '../../assets/loading.png'
+
 import Plus from '../../assets/plus.png'
 import { useHistory } from 'react-router'
 import { api } from '../../services/axios'
@@ -43,7 +45,7 @@ export default function Home() {
 
   return (
     <main className={styles.HomeContanier} >
-      {loading ? <h1>Carregando</h1> : 
+      {loading ? <img className={styles.loading} src={Loading} alt="Carregando" /> : 
       <>
         <img src={Plus} alt="adicionar todo" onClick={() => history.push('/create')} />
         {services.map(todo => (
