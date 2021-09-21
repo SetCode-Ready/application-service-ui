@@ -8,7 +8,8 @@ import { useHistory } from 'react-router'
 import { api } from '../../services/axios'
 
 interface CardProps{
-  id: number
+  id: string;
+  docId: string;
   status: string;
   title: string;
   description: string;

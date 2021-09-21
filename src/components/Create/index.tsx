@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 import styles from './style.module.scss'
 import Back from '../../assets/back.png'
 import { useHistory } from 'react-router'
@@ -36,7 +36,7 @@ export default function Create() {
         })
       }
       
-      history.push('/')
+      history.push("/");
     } catch (e) {
       alert(e)
     } finally {

@@ -2,14 +2,15 @@ import { useHistory } from 'react-router';
 import styles from './style.module.scss'
 
 interface CardProps{
-  id: number;
+  docId: string;
+  id: string;
   status: string;
   title: string;
   description: string;
   limitDate: string;
 }
 
-export default function Card({id, status, title, description, limitDate}: CardProps) {
+export default function Card({docId, id, status, title, description, limitDate}: CardProps) {
   const history = useHistory()
 
   let color = ''
@@ -29,7 +30,7 @@ export default function Card({id, status, title, description, limitDate}: CardPr
   }
   
   return (
-    <div onClick={() => history.push(`/view/${id}`)}  className={styles.ContentContanier} >
+    <div onClick={() => history.push(`/view/${docId}`)}  className={styles.ContentContanier} >
       <p style={{background: color}} >{status}</p>
 
       <h1>{title}</h1>

@@ -6,7 +6,8 @@ import { useHistory, useParams } from 'react-router'
 import { api } from '../../services/axios'
 
 interface ServiceProps{
-  id: number;
+  id: string;
+  docId: string;
   status: string;
   title: string;
   description: string;
@@ -74,7 +75,7 @@ export default function View() {
   return (
     <main className={styles.CreateContanier} >
       <img className={styles.back} src={Back} alt="adicionar todo" onClick={() => history.push('/')} />
-      <img className={styles.edit} src={Edit} alt="Botão de edição" onClick={() => history.push(`/edit/${service?.id}`)} />
+      <img className={styles.edit} src={Edit} alt="Botão de edição" onClick={() => history.push(`/edit/${service?.docId}`)} />
       <div >
         <h1>{service?.title}</h1>
         
