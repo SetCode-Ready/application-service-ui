@@ -1,0 +1,43 @@
+.ContentContanier{
+  width: 50rem;
+  background-color: var(--shape);
+  border-radius: 1rem;
+  color: var(--white-word);
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  margin-bottom: 2rem;
+
+  transition: filter 0.2s;
+
+  h1{
+    padding-top: 1rem;
+  }
+
+  p{
+    padding: 0.25rem;
+    width: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+  }
+
+  span{
+    display: block;
+    padding: 1rem 0;
+  }
+  
+  time{
+    display: block;
+    padding-bottom: 0.5rem;
+  }
+
+  &:last-child{
+    margin-bottom: 0;
+  } 
+
+  &:hover{
+    filter: brightness(0.9);
+  }
+}

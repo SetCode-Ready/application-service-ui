@@ -1,0 +1,28 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+@media(max-width: 1080px){
+  html{
+    font-size: 93.75%;
+  }
+}
+
+@media(max-width: 720px){
+  html{
+    font-size: 87.5%;
+  }
+}
+
+:root{
+  --white-word: #f2f2f2;
+  --background: #4B6FFF;
+  --shape: #7590FD;
+  --actions: #1144DD;
+  --open: #FFED4B;
+  --done: #4FFF4B;
+  --cancel: #FF4B4B;
+}

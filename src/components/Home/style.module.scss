@@ -1,0 +1,19 @@
+.HomeContanier{
+  margin: 0 auto;
+  max-width: 60rem;
+  padding: 3rem 0;
+  background-color: var(--background);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  min-height: calc(100vh - 5rem);
+
+  img{
+    position: fixed;
+    width: 3rem;
+    bottom: 2rem;
+    right: 4rem;
+    cursor: pointer;
+  }
+}

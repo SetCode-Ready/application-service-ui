@@ -1,0 +1,89 @@
+.CreateContanier{
+  margin: 0 auto;
+  max-width: 60rem;
+  padding: 3rem 0;
+  background-color: var(--background);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  img{
+    position: absolute;
+    width: 3rem;
+    top: 1rem;
+    left: 1rem;
+    cursor: pointer;
+  }
+
+  form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50rem;
+    background-color: var(--shape);
+    padding: 3rem;
+    border-radius: 1rem;
+
+    fieldset{
+      border: 0;
+      display: flex;
+      flex-direction: column;
+      width: 45rem;
+      margin-bottom: 1rem;
+
+      &:last-child{
+        margin-bottom: 0;
+      }
+    
+      label{
+        color: var(--white-word);
+        font-size: 18px;
+        padding: 0.5rem 0;
+
+        &.title{
+          font-size: 24px;
+          font-weight: 700;
+        }
+      }
+
+      input, textarea{
+        border: 0;
+        padding: 0.5rem;
+        height: 2.5rem;
+        border-radius: 1rem;
+        font-size: 16px;
+        background-color: var(--background);
+        color: white;
+      }
+
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        color: transparent;
+    }
+
+      textarea{
+        resize: vertical;
+        height: 4rem;
+      }
+    }
+
+    button{
+      margin-top: 0.5rem;
+      width: 10rem;
+      height: 3rem;
+      border: 0;
+      border-radius: 1rem;
+      background-color: var(--actions);
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      align-self: flex-end;
+      cursor: pointer;
+      transition: filter 0.2s;
+
+      &:hover{
+        filter: brightness(0.9);
+      }
+    }
+  }
+}
